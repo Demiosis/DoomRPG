@@ -1,0 +1,133 @@
+// Customized GameInfo
+gameinfo
+{
+    // Player Class
+    playerclasses = "DRPGDoomPlayer"
+
+    // Respawning
+    defaultrespawntime = 300
+    
+    // Drop Style
+    defaultdropstyle = 1
+
+    // Inventory
+    definventorymaxamount = 1000
+    
+    // Menus/UI
+    dimamount = 0
+    menufontcolor_title = "green"
+    menufontcolor_label = "red"
+    menufontcolor_value = "white"
+    menufontcolor_action = "white"
+    menufontcolor_header = "white"
+    menufontcolor_highlight = "green"
+    menufontcolor_selection = "green"
+    
+    // ZScript
+    AddEventHandlers = "DRPGZEHandler"
+    AddEventHandlers = "DRPGZEHandlerMap"
+    AddEventHandlers = "DRPGZEHandlerRPG"
+}
+
+// UAC Outpost
+map Outpost "UAC Outpost"
+{
+    levelnum = 999
+    cluster = 999
+    sky1 = "textures/outpost/outpost_sky.png"
+    
+    nointermission
+}
+
+cluster 999
+{
+    entertext = " "
+    pic = "PostPic"
+}
+
+// Allow players to start the game on the Outpost
+episode OUTPOST
+{
+    name = "UAC Outpost"
+    key = "U"
+    noskillmenu
+}
+
+// Rejigger the skills
+clearskills
+
+// Easy skill
+skill easy
+{
+    aggressiveness = 0.0
+    spawnfilter = normal
+
+    easybossbrain
+    easykey
+    autousehealth
+    
+    acsreturn = 1
+    
+    name = "Easy"
+    textcolor = "Green"
+}
+
+// Normal skill
+skill normal
+{
+    aggressiveness = 0.25
+    spawnfilter = hard
+    
+    autousehealth
+
+    acsreturn = 2
+    
+    name = "Normal"
+    textcolor = "Yellow"
+}
+
+// Hard skill
+skill hard
+{
+    aggressiveness = 0.5
+    spawnfilter = nightmare
+    
+    autousehealth
+
+    acsreturn = 3
+    
+    name = "Hard"
+    textcolor = "Orange"
+}
+
+// Nightmare skill
+skill nightmare
+{
+    aggressiveness = 1.0
+    spawnfilter = nightmare
+    
+    autousehealth
+    defaultskill
+
+    acsreturn = 4
+    
+    name = "Nightmare"
+    MustConfirm = "'Towering, fierce, terrible. Nightmare made material!'"
+    textcolor = "Red"
+}
+
+// Hell skill
+skill hell
+{
+    aggressiveness = 1.0
+    spawnfilter = nightmare
+
+    disablecheats
+    autousehealth
+    
+    acsreturn = 5
+    
+    name = "Hell"
+    MustConfirm = "'Steel yourself and remember: there can be no victory without madness!'"
+    textcolor = "Brick"
+}

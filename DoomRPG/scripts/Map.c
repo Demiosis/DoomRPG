@@ -316,30 +316,6 @@ NamedScript Type_OPEN void MapInit()
     // Set up the currently in-effect map event
     SetupMapEvent();
 
-    // Tip
-    for (int i = 0; i < MAX_PLAYERS; i++)
-    {
-        // Player is not in-game
-        if (!PlayerInGame(i)) continue;
-
-        // Player has the tips CVAR disabled
-        if (!GetUserCVar(i, "drpg_tips")) continue;
-
-        // Give a tip for events instead if they're new to the player
-        if (CurrentLevel->Event != MAPEVENT_NONE)
-        {
-            // Player has seen this event before
-            if (Players(i).SeenEventTip[CurrentLevel->Event]) continue;
-
-            SetActivator(Players(i).TID);
-        }
-        else
-            SetActivator(0, AAPTR_PLAYER1 << i);
-
-        GiveTip();
-        SetActivator(0, AAPTR_NULL);
-    }
-
     // Initialize the Dynamic Loot Generator
     // [KS] Call it here so that events can modify the loot it spawns
     if (GetCVar("drpg_loot_system") && !CurrentLevel->UACBase)

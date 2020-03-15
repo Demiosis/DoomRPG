@@ -1,5 +1,21 @@
 class DRPGZUtilities
 {
+    // hehe boi
+    ui void drawTextWrap(Font fnt, int Colour, int x, int y, string text, double alpha)
+    {
+        // Copied from DrawName() in gzdoom.pk3/zscript/ui/statscreen/statscreen.zs.
+        int h = 0;
+        int lumph = fnt.GetHeight();
+
+        BrokenLines lines = fnt.BreakLines(text, screen.GetWidth());
+
+        int count = lines.Count();
+        for (int i = 0; i < count; i++)
+        {
+            screen.DrawText(fnt, Colour, (x - lines.StringWidth(i)) / 2, y + h, lines.StringAt(i), DTA_Alpha, alpha);
+            h += lumph;
+        }
+    }
     static int GetLevelSectorCount()
     {
         return level.Sectors.Size();
@@ -34,7 +50,6 @@ class DRPGZUtilities
             // Tags: 666 (Floor_LowerToLowest)
             return true;
         }
-
         else if (level.MapName == "E2M8")
         {
             // Tower of Babel

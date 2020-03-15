@@ -43,7 +43,6 @@ NamedScript void FocusMode();
 NamedScript DECORATE void StatusEffect(int, int, int);
 NamedScript DECORATE int AddHealth(int, int);
 NamedScript DECORATE int AddHealthDirect(int, int);
-NamedScript void GiveTip();
 
 NamedScript Type_OPEN void GlobalInit();
 NamedScript Type_ENTER void Init();

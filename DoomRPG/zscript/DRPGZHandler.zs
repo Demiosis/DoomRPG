@@ -80,6 +80,7 @@ class DRPGZEHandler : EventHandler
             {
                 Damage += e.Thing.Health;
             }
+
             e.Thing.ACS_ScriptCall("MonsterDamaged", e.DamageSource.TID, Damage);
         }
     }

@@ -1,6 +1,8 @@
 version "3.7"
 
 #include "zscript/DRPGZHandler.zs"
+#include "zscript/DRPGZHandlerMap.zs"
+#include "zscript/DRPGZHandlerRPG.zs"
 #include "zscript/DRPGZShield.zs"
 #include "zscript/DRPGZUtils.zs"
 
